@@ -61,7 +61,7 @@ class _DrawerBodyState extends State<DrawerBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            InkWell (
+            InkWell(
               onTap: () => Navigator.pop(context),
               child: const Icon(Icons.arrow_back_rounded),
             ),
@@ -196,7 +196,7 @@ class _DrawerBodyState extends State<DrawerBody> {
                         onTap: pickTime,
                         child: Text(
                           selectedTime != null
-                              ? "${selectedTime!.hour.toString().padLeft(2, '0')}:${selectedTime!.minute.toString().padLeft(2, '0')}"
+                              ? "${selectedTime!.hour}:${selectedTime!.minute}"
                               : "Select Time",
                           style: TextStyle(
                             color: Theme.of(context).colorScheme.primary,
@@ -236,9 +236,7 @@ class _DrawerBodyState extends State<DrawerBody> {
                       Navigator.pop(context);
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                          content:  Text(
-                            "Please select both date and time!",
-                          ),
+                          content: Text("Please select both date and time!"),
                         ),
                       );
                     } else {
